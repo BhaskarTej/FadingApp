@@ -57,3 +57,28 @@ class _FadingTextAnimationState extends State<FadingTextAnimation> {
               ),
             ),
           ),
+SizedBox(height: 20),
+          // Adding a Switch to toggle frame visibility
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text('Show Frame'),
+              Switch(
+                value: _showFrame,
+                onChanged: (value) {
+                  setState(() {
+                    _showFrame = value;
+                  });
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: toggleVisibility,
+        child: const Icon(Icons.play_arrow),
+      ),
+    );
+  }
+}
