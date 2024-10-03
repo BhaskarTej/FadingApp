@@ -26,4 +26,34 @@ class _FadingTextAnimationState extends State<FadingTextAnimation> {
       _isVisible = !_isVisible;
     });
   }
-
+@override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Fading Text Animation'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: GestureDetector(
+              onTap: toggleVisibility,
+              child: AnimatedOpacity(
+                opacity: _isVisible ? 1.0 : 0.0,
+                duration: const Duration(seconds: 1),
+                curve: Curves.easeInOut, // Adding a smooth curve to the animation
+                child: Container(
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    border: _showFrame
+                        ? Border.all(color: Colors.blue, width: 2)
+                        : null, // Toggle frame visibility based on _showFrame
+                  ),
+                  child: const Text(
+                    'Hello, Flutter!',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                ),
+              ),
+            ),
+          ),
