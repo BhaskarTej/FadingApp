@@ -12,5 +12,18 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+class FadingTextAnimation extends StatefulWidget {
+  @override
+  _FadingTextAnimationState createState() => _FadingTextAnimationState();
+}
 
+class _FadingTextAnimationState extends State<FadingTextAnimation> {
+  bool _isVisible = true;
+  bool _showFrame = false;
+
+  void toggleVisibility() {
+    setState(() {
+      _isVisible = !_isVisible;
+    });
+  }
 
